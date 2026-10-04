@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Biodata Interview</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #222;
+}
+
+/* =========================
+   UMUM
+========================= */
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.logo {
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.login-box h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.form-box {
+    display: none;
+}
+
+.form-box.active {
+    display: block;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #667eea;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border-radius: 9px;
+    background: #667eea;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #5268d8;
+}
+
+.switch {
+    text-align: center;
+    margin-top: 20px;
+    color: #667eea;
+    cursor: pointer;
+}
+
+.message {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+
+.message.error {
+    display: block;
+    background: #ffd9dd;
+    color: #9b1c28;
+}
+
+.message.success {
+    display: block;
+    background: #d8f5df;
+    color: #176b2b;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.navbar {
+    background: white;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.navbar h2 {
+    color: #667eea;
+}
+
+.logout {
+    background: #ef4444;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+.dashboard-content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h1 {
+    margin-bottom: 5px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   FOTO
+========================= */
+
+.photo-area {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #667eea;
+    background: #eee;
+}
+
+.photo-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #667eea;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-preview {
+    text-align: center;
+}
+
+.profile-preview img,
+.profile-preview .profile-icon {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-icon {
+    background: #667eea;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.profile-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.profile-job {
+    color: #667eea;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+/* =========================
+   INTERVIEW
+========================= */
+
+.question {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.answer {
+    min-height: 150px;
+}
+
+.score {
+    text-align: center;
+    padding: 30px;
+}
+
+.score-number {
+    font-size: 60px;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.result-text {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar h2 {
+        font-size: 18px;
+    }
+
+    .login-box {
+        padding: 25px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HALAMAN LOGIN
+===================================================== -->
+
+<div id="loginPage" class="login-page">
+
+    <div class="login-box">
+
+        <div class="logo">👤</div>
+
+        <h1>Biodata Interview</h1>
+
+        <p class="subtitle">
+            Buat profil dan latihan interview kerja
+        </p>
+
+
+        <!-- LOGIN -->
+
+        <div id="loginForm" class="form-box active">
+
+            <h2>🔐 Login</h2>
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="nama@email.com"
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button class="btn" onclick="login()">
+                🔐 Login
+            </button>
+
+            <p class="switch" onclick="showRegister()">
+                Belum punya akun?
+                <b>Daftar</b>
+            </p>
+
+        </div>
+
+
+        <!-- DAFTAR -->
+
+        <div id="registerForm" class="form-box">
+
+            <h2>📝 Buat Akun</h2>
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                id="registerUsername"
+                placeholder="Contoh: eko"
+            >
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="nama@email.com"
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Minimal 6 karakter"
+            >
+
+            <button class="btn" onclick="register()">
+                📝 Daftar
+            </button>
+
+            <p class="switch" onclick="showLogin()">
+                Sudah punya akun?
+                <b>Login</b>
+            </p>
+
+        </div>
+
+
+        <div id="loginMessage" class="message"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<div id="dashboard" class="dashboard hidden">
+
+    <div class="navbar">
+
+        <h2>👤 Biodata Interview</h2>
+
+        <button class="logout" onclick="logout()">
+            Keluar
+        </button>
+
+    </div>
+
+
+    <div class="dashboard-content">
+
+        <div class="welcome">
+
+            <h1>
+                Halo, <span id="welcomeName"></span> 👋
+            </h1>
+
+            <p>
+                Lengkapi biodata kamu dan persiapkan interview kerja.
+            </p>
+
+        </div>
+
+
+        <!-- BIODATA -->
+
+        <div class="card">
+
+            <h2>📝 Biodata Saya</h2>
+
+
+            <div class="photo-area">
+
+                <div id="photoContainer">
+
+                    <div class="photo-placeholder">
+                        👤
+                    </div>
+
+                </div>
+
+                <br>
+
+                <input
+                    type="file"
+                    id="photoInput"
+                    accept="image/*"
+                    onchange="uploadPhoto(event)"
+                >
+
+            </div>
+
+
+            <div class="grid">
+
+                <div>
+
+                    <label>Nama Lengkap</label>
+
+                    <input
+                        id="nama"
+                        type="text"
+                        placeholder="Nama lengkap"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Umur</label>
+
+                    <input
+                        id="umur"
+                        type="number"
+                        placeholder="Contoh: 20"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Email</label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Nomor HP</label>
+
+                    <input
+                        id="telepon"
+                        type="text"
+                        placeholder="08xxxxxxxxxx"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Profesi</label>
+
+                    <input
+                        id="profesi"
+                        type="text"
+                        placeholder="Contoh: Pelajar"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Posisi yang Diinginkan</label>
+
+                    <select id="posisi">
+
+                        <option value="">
+                            Pilih posisi
+                        </option>
+
+                        <option>
+                            Web Developer
+                        </option>
+
+                        <option>
+                            UI/UX Designer
+                        </option>
+
+                        <option>
+                            Graphic Designer
+                        </option>
+
+                        <option>
+                            Digital Marketing
+                        </option>
+
+                        <option>
+                            Data Analyst
+                        </option>
+
+                        <option>
+                            Admin
+                        </option>
+
+                        <option>
+                            Customer Service
+                        </option>
+
+                        <option>
+                            Lainnya
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="full">
+
+                    <label>Alamat</label>
+
+                    <textarea
+                        id="alamat"
+                        placeholder="Alamat tempat tinggal"
+                    ></textarea>
+
+                </div>
+
+
+                <div>
+
+                    <label>Hobi</label>
+
+                    <input
+                        id="hobi"
+                        type="text"
+                        placeholder="Contoh: Membaca, olahraga"
+                    >
+
+                </div>
+
+
+                <div class="full">
+
+                    <label>Tentang Saya</label>
+
+                    <textarea
+                        id="tentang"
+                        placeholder="Ceritakan tentang diri kamu..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <button class="btn" onclick="saveProfile()">
+                💾 Simpan Biodata
+            </button>
+
+        </div>
+
+
+        <!-- PREVIEW -->
+
+        <div class="card">
+
+            <h2>👀 Preview Profil</h2>
+
+            <div class="profile-preview">
+
+                <div id="previewPhoto">
+
+                    <div class="profile-icon">
+                        👤
+                    </div>
+
+                </div>
+
+                <div
+                    class="profile-name"
+                    id="previewName"
+                >
+                    Nama Kamu
+                </div>
+
+                <div
+                    class="profile-job"
+                    id="previewJob"
+                >
+                    Posisi Pekerjaan
+                </div>
+
+                <p
+                    id="previewAbout"
+                    style="margin-top:15px;color:#666"
+                >
+                    Belum ada deskripsi.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- INTERVIEW -->
+
+        <div class="card">
+
+            <h2>🎤 Simulasi Interview</h2>
+
+            <p style="margin-bottom:20px">
+                Jawab beberapa pertanyaan interview kerja.
+            </p>
+
+            <button
+                class="btn"
+                onclick="startInterview()"
+            >
+                🎤 Mulai Interview
+            </button>
+
+        </div>
+
+
+        <!-- AREA INTERVIEW -->
+
+        <div
+            id="interviewCard"
+            class="card hidden"
+        >
+
+            <div id="interviewQuestion">
+
+            </div>
+
+            <textarea
+                id="interviewAnswer"
+                class="answer"
+                placeholder="Tuliskan jawaban kamu..."
+            ></textarea>
+
+            <button
+                class="btn"
+                onclick="nextQuestion()"
+            >
+                Lanjut →
+            </button>
+
+        </div>
+
+
+        <!-- HASIL INTERVIEW -->
+
+        <div
+            id="resultCard"
+            class="card hidden"
+        >
+
+            <div class="score">
+
+                <h2>📊 Hasil Interview</h2>
+
+                <div
+                    class="score-number"
+                    id="scoreNumber"
+                >
+                    0
+                </div>
+
+                <div
+                    class="result-text"
+                    id="resultText"
+                >
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   DATABASE LOKAL
+===================================================== */
+
+let users =
+    JSON.parse(
+        localStorage.getItem("users")
+    ) || {};
+
+let currentUser = null;
+
+
+/* =====================================================
+   LOGIN / DAFTAR
+===================================================== */
+
+function showRegister() {
+
+    document
+        .getElementById("loginForm")
+        .classList.remove("active");
+
+    document
+        .getElementById("registerForm")
+        .classList.add("active");
+
+    clearMessage();
+}
+
+
+function showLogin() {
+
+    document
+        .getElementById("registerForm")
+        .classList.remove("active");
+
+    document
+        .getElementById("loginForm")
+        .classList.add("active");
+
+    clearMessage();
+}
+
+
+function showMessage(text, type) {
+
+    const box =
+        document.getElementById("loginMessage");
+
+    box.textContent = text;
+
+    box.className =
+        "message " + type;
+}
+
+
+function clearMessage() {
+
+    const box =
+        document.getElementById("loginMessage");
+
+    box.className = "message";
+
+    box.textContent = "";
+}
+
+
+/* =====================================================
+   DAFTAR
+===================================================== */
+
+function register() {
+
+    const username =
+        document
+            .getElementById("registerUsername")
+            .value
+            .trim();
+
+    const email =
+        document
+            .getElementById("registerEmail")
+            .value
+            .trim()
+            .toLowerCase();
+
+    const password =
+        document
+            .getElementById("registerPassword")
+            .value;
+
+
+    if (!username || !email || !password) {
+
+        showMessage(
+            "Semua kolom harus diisi.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (password.length < 6) {
+
+        showMessage(
+            "Password minimal 6 karakter.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (users[email]) {
+
+        showMessage(
+            "Email tersebut sudah terdaftar.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    users[email] = {
+
+        username: username,
+
+        email: email,
+
+        password: password,
+
+        nama: username,
+
+        umur: "",
+
+        telepon: "",
+
+        profesi: "",
+
+        posisi: "",
+
+        alamat: "",
+
+        hobi: "",
+
+        tentang: "",
+
+        foto: ""
+
+    };
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+
+    showMessage(
+        "✅ Akun berhasil dibuat! Silakan login.",
+        "success"
+    );
+
+
+    document.getElementById(
+        "registerUsername"
+    ).value = "";
+
+    document.getElementById(
+        "registerEmail"
+    ).value = "";
+
+    document.getElementById(
+        "registerPassword"
+    ).value = "";
+
+
+    setTimeout(
+        showLogin,
+        1200
+    );
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login() {
+
+    const email =
+        document
+            .getElementById("loginEmail")
+            .value
+            .trim()
+            .toLowerCase();
+
+    const password =
+        document
+            .getElementById("loginPassword")
+            .value;
+
+
+    if (!email || !password) {
+
+        showMessage(
+            "Email dan password harus diisi.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const user =
+        users[email];
+
+
+    if (!user) {
+
+        showMessage(
+            "Akun tidak ditemukan.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (user.password !== password) {
+
+        showMessage(
+            "Password salah.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    currentUser = email;
+
+    localStorage.setItem(
+        "currentUser",
+        email
+    );
+
+
+    openDashboard();
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function openDashboard() {
+
+    document
+        .getElementById("loginPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("dashboard")
+        .classList.remove("hidden");
+
+
+    loadProfile();
+}
+
+
+function logout() {
+
+    currentUser = null;
+
+    localStorage.removeItem(
+        "currentUser"
+    );
+
+
+    document
+        .getElementById("dashboard")
+        .classList.add("hidden");
+
+    document
+        .getElementById("loginPage")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("loginEmail")
+        .value = "";
+
+    document
+        .getElementById("loginPassword")
+        .value = "";
+
+}
+
+
+/* =====================================================
+   LOAD PROFILE
+===================================================== */
+
+function loadProfile() {
+
+    const user =
+        users[currentUser];
+
+    if (!user) return;
+
+
+    document.getElementById(
+        "welcomeName"
+    ).textContent =
+        user.nama || user.username;
+
+
+    document.getElementById(
+        "nama"
+    ).value =
+        user.nama || "";
+
+
+    document.getElementById(
+        "umur"
+    ).value =
+        user.umur || "";
+
+
+    document.getElementById(
+        "email"
+    ).value =
+        user.email || "";
+
+
+    document.getElementById(
+        "telepon"
+    ).value =
+        user.telepon || "";
+
+
+    document.getElementById(
+        "profesi"
+    ).value =
+        user.profesi || "";
+
+
+    document.getElementById(
+        "posisi"
+    ).value =
+        user.posisi || "";
+
+
+    document.getElementById(
+        "alamat"
+    ).value =
+        user.alamat || "";
+
+
+    document.getElementById(
+        "hobi"
+    ).value =
+        user.hobi || "";
+
+
+    document.getElementById(
+        "tentang"
+    ).value =
+        user.tentang || "";
+
+
+    if (user.foto) {
+
+        showPhoto(
+            user.foto
+        );
+
+    }
+
+
+    updatePreview();
+}
+
+
+/* =====================================================
+   SIMPAN BIODATA
+===================================================== */
+
+function saveProfile() {
+
+    const user =
+        users[currentUser];
+
+
+    user.nama =
+        document
+            .getElementById("nama")
+            .value
+            .trim();
+
+
+    user.umur =
+        document
+            .getElementById("umur")
+            .value
+            .trim();
+
+
+    user.telepon =
+        document
+            .getElementById("telepon")
+            .value
+            .trim();
+
+
+    user.profesi =
+        document
+            .getElementById("profesi")
+            .value
+            .trim();
+
+
+    user.posisi =
+        document
+            .getElementById("posisi")
+            .value;
+
+
+    user.alamat =
+        document
+            .getElementById("alamat")
+            .value
+            .trim();
+
+
+    user.hobi =
+        document
+            .getElementById("hobi")
+            .value
+            .trim();
+
+
+    user.tentang =
+        document
+            .getElementById("tentang")
+            .value
+            .trim();
+
+
+    users[currentUser] =
+        user;
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+
+    updatePreview();
+
+
+    document.getElementById(
+        "welcomeName"
+    ).textContent =
+        user.nama || user.username;
+
+
+    alert(
+        "✅ Biodata berhasil disimpan!"
+    );
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+function uploadPhoto(event) {
+
+    const file =
+        event.target.files[0];
+
+
+    if (!file) return;
+
+
+    if (!file.type.startsWith("image/")) {
+
+        alert(
+            "File harus berupa gambar."
+        );
+
+        return;
+    }
+
+
+    /*
+       Membatasi ukuran foto agar
+       localStorage tidak cepat penuh.
+    */
+
+    if (file.size > 2 * 1024 * 1024) {
+
+        alert(
+            "Ukuran foto maksimal 2 MB."
+        );
+
+        return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(e) {
+
+        const foto =
+            e.target.result;
+
+
+        users[currentUser].foto =
+            foto;
+
+
+        localStorage.setItem(
+            "users",
+            JSON.stringify(users)
+        );
+
+
+        showPhoto(foto);
+
+        updatePreview();
+    };
+
+
+    reader.readAsDataURL(file);
+}
+
+
+function showPhoto(foto) {
+
+    document.getElementById(
+        "photoContainer"
+    ).innerHTML = `
+
+        <img
+            src="${foto}"
+            class="profile-photo"
+        >
+
+    `;
+}
+
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+
+function updatePreview() {
+
+    const user =
+        users[currentUser];
+
+    if (!user) return;
+
+
+    document.getElementById(
+        "previewName"
+    ).textContent =
+        user.nama ||
+        user.username ||
+        "Nama Kamu";
+
+
+    document.getElementById(
+        "previewJob"
+    ).textContent =
+        user.posisi ||
+        "Posisi Pekerjaan";
+
+
+    document.getElementById(
+        "previewAbout"
+    ).textContent =
+        user.tentang ||
+        "Belum ada deskripsi.";
+
+
+    if (user.foto) {
+
+        document.getElementById(
+            "previewPhoto"
+        ).innerHTML = `
+
+            <img
+                src="${user.foto}"
+            >
+
+        `;
+
+    }
+}
+
+
+/* =====================================================
+   INTERVIEW
+===================================================== */
+
+const questions = [
+
+    "Ceritakan tentang diri kamu.",
+
+    "Mengapa kamu tertarik dengan posisi pekerjaan ini?",
+
+    "Apa kelebihan yang kamu miliki?",
+
+    "Apa kekurangan kamu dan bagaimana cara kamu mengatasinya?",
+
+    "Mengapa perusahaan harus memilih kamu?",
+
+    "Bagaimana kamu menghadapi tekanan dalam pekerjaan?",
+
+    "Apa tujuan karier kamu dalam 5 tahun ke depan?"
+
+];
+
+
+let questionIndex = 0;
+
+let answers = [];
+
+
+function startInterview() {
+
+    questionIndex = 0;
+
+    answers = [];
+
+
+    document
+        .getElementById("resultCard")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("interviewCard")
+        .classList.remove("hidden");
+
+
+    showQuestion();
+}
+
+
+function showQuestion() {
+
+    const area =
+        document.getElementById(
+            "interviewQuestion"
+        );
+
+
+    area.innerHTML = `
+
+        <div class="question">
+
+            Pertanyaan ${questionIndex + 1}
+            dari ${questions.length}
+
+        </div>
+
+        <p style="margin-bottom:20px">
+
+            ${questions[questionIndex]}
+
+        </p>
+
+    `;
+
+
+    document.getElementById(
+        "interviewAnswer"
+    ).value = "";
+}
+
+
+function nextQuestion() {
+
+    const answer =
+        document
+            .getElementById(
+                "interviewAnswer"
+            )
+            .value
+            .trim();
+
+
+    if (answer.length < 10) {
+
+        alert(
+            "Jawaban terlalu pendek. Coba jawab lebih lengkap."
+        );
+
+        return;
+    }
+
+
+    answers.push(answer);
+
+
+    questionIndex++;
+
+
+    if (
+        questionIndex >=
+        questions.length
+    ) {
+
+        finishInterview();
+
+        return;
+    }
+
+
+    showQuestion();
+}
+
+
+/* =====================================================
+   HASIL INTERVIEW
+===================================================== */
+
+function finishInterview() {
+
+    document
+        .getElementById("interviewCard")
+        .classList.add("hidden");
+
+
+    /*
+       Penilaian sederhana berdasarkan
+       panjang dan kelengkapan jawaban.
+    */
+
+    let total = 0;
+
+
+    answers.forEach(
+        function(answer) {
+
+            let score = 50;
+
+
+            if (
+                answer.length >= 30
+            ) {
+                score += 10;
+            }
+
+
+            if (
+                answer.length >= 60
+            ) {
+                score += 10;
+            }
+
+
+            if (
+                answer.length >= 100
+            ) {
+                score += 10;
+            }
+
+
+            total +=
+                Math.min(
+                    score,
+                    100
+                );
+
+        }
+    );
+
+
+    const finalScore =
+        Math.round(
+            total / answers.length
+        );
+
+
+    document.getElementById(
+        "scoreNumber"
+    ).textContent =
+        finalScore;
+
+
+    let result = "";
+
+
+    if (finalScore >= 80) {
+
+        result =
+            "🌟 Sangat baik! Jawaban kamu sudah cukup meyakinkan.";
+
+    }
+
+    else if (finalScore >= 65) {
+
+        result =
+            "👍 Cukup baik. Coba buat jawaban lebih spesifik dan percaya diri.";
+
+    }
+
+    else {
+
+        result =
+            "💪 Terus berlatih. Coba berikan jawaban yang lebih lengkap dan konkret.";
+
+    }
+
+
+    document.getElementById(
+        "resultText"
+    ).textContent =
+        result;
+
+
+    document
+        .getElementById("resultCard")
+        .classList.remove("hidden");
+}
+
+
+/* =====================================================
+   CEK LOGIN SAAT HALAMAN DIBUKA
+===================================================== */
+
+window.onload = function() {
+
+    const savedUser =
+        localStorage.getItem(
+            "currentUser"
+        );
+
+
+    if (
+        savedUser &&
+        users[savedUser]
+    ) {
+
+        currentUser =
+            savedUser;
+
+        openDashboard();
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
